@@ -1,0 +1,780 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root
+{
+    --font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-size: 16px ;
+    --primary-color:#0d6efd;
+    --secondary-color: #dc3545;
+    --link-color: var(--primary-color) ;
+    --gradient-color: linear-gradient(111.78deg, #234EB0 8.68%, #B656E2 83.64%);
+    --line-height: 1.5;
+    --color: #212529;
+    --background: #fff;
+}
+
+html
+{
+    height: 100%;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+body
+{
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--color);
+    background: var(--background);
+}
+
+/* NAVIGATION */
+
+.navigation
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12.5vh;
+    padding: 1rem 2rem;
+    margin-bottom: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: var(--background);
+    z-index: 50;
+
+}
+
+.navigation .logo
+{
+    height: max-content;
+    width: max-content;
+}
+
+.navigation .logo img
+{
+    width:  60px;
+    height: 60px;
+    /* -o-object-fit: contain; */
+    /* object-fit: contain; */
+    border-radius: 50%;
+}
+
+.navigation .menu .menu-item
+{
+    padding: 0.5rem;
+    margin: 05px;
+    color: var(--color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 510;
+}
+
+.navigation .menu .menu-item:hover,
+.navigation .menu .menu-item.active
+{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    border-bottom: 3px solid rgb(88, 4, 166);
+    border-radius: 3px;
+    opacity: 1 !important;
+}
+
+.navigation .menu .callToAction
+{
+    border-radius: 20px;
+    background: var(--gradient-color);
+    color: var(--background);
+    padding: 0.5rem 3rem;
+    margin: 05px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 510;
+    transition: 1s background ease-in;
+    border: transparent solid 1px;
+}
+
+.navigation .menu .callToAction:hover
+{
+    background: transparent;
+    color: var(--color);
+    border: var(--primary-color) solid 1px;
+}
+
+.navigation .responsive-bar
+{
+    background-color: #fff;
+    height: 7px;
+    border-radius: 100px;
+    width: 35px;
+    position: relative;
+    background: linear-gradient(90deg, #234EB0 0%, #B656E2 99.98%);
+    border: none;
+    display: none;
+}
+
+
+.navigation .responsive-bar::before {
+    content: '';
+    position: absolute;
+    height: 7px;
+    border-radius: 100px;
+    width: 17px;
+    top: -11px;
+    left: 0px;
+    background-color: #000;
+    display: block;
+    background: linear-gradient(90deg, #234EB0 0%, #B656E2 99.98%);
+}
+
+.navigation .responsive-bar::after {
+    content: '';
+    position: absolute;
+    height: 7px;
+    border-radius: 100px;
+    width: 17px;
+    top: 11px;
+    right: 0px;
+    background-color: #000;
+    display: block;
+    background: linear-gradient(90deg, #234EB0 0%, #B656E2 99.98%);
+}
+
+@media screen and (max-width: 1024px) {
+    
+    .navigation .menu 
+    {
+        /* display: none; */
+        position: absolute;
+        top: -100vh;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: var(--background);
+        display: flex;
+        flex-direction: column;
+        transition: 0.7s top ease-in-out;
+        z-index: 70;
+    }
+
+    .navigation .menu .menu-item
+    {
+        border-bottom: 4px solid transparent;
+    }
+
+    .navigation .menu.active 
+    {
+        top: 100%;
+    }
+
+    .navigation .responsive-bar
+    {
+        display: grid;
+    }
+
+
+
+}
+
+/* NAVIGATION END */
+
+/* MAIN SECTION */
+
+main
+{
+    padding: 0 2rem;
+}
+
+section
+{
+    width: 100%;
+    margin-bottom: 20px;
+    /* border: red solid 2px; */
+}
+
+section .heading
+{
+    padding: 1rem;
+}
+
+section .title
+{
+    font-weight: 700;
+    background: -webkit-linear-gradient(360deg, #234EB0 5%, #9010B0 100%);
+    background: linear-gradient(360deg, #234EB0 5%, #9010B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    line-height: 2.5rem;
+    font-size: 3rem;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+section .subtitle
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--secondary-color);
+}
+
+/* PROFILE  */
+
+.profile
+{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 1rem;
+}
+
+.profile .profile-image
+{
+    margin-right: 50px;
+    width: max-content;
+    height: max-content;
+    position: relative;
+    /* width: 323.08px; */
+    /* overflow: hidden; */
+    border-radius: 50% / 20px 100px 5%;
+    padding: 0.3rem;
+    background: var(--gradient-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .profile-image img
+{
+    width: 200px;
+    max-height: 270px;
+    border-radius: 50% / 20px 100px 5%;
+}
+
+
+.profile .profile-details
+{
+    width: 100%;
+    text-align: right;
+    /* border: red solid 2px; */
+}
+
+.profile .profile-details .profile-name
+{
+    font-weight: bold;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.profile .profile-details .profile-description
+{
+    width: 60%;
+    margin-left: auto;
+    font-size: 1.2rem;
+    line-height: var(--line-height);
+    margin-top: 10px;
+}
+
+.profile .profile-details .profile-buttons
+{
+    text-align: right;
+    /* border: red solid 2px; */
+}
+
+.profile .profile-details .profile-buttons .btn,
+.profile .profile-details .profile-buttons button,
+.profile .profile-details .profile-buttons a button
+{
+    height: 40px;
+    width: 200px;
+    background: var(--gradient-color);
+    color: var(--background);
+    padding: 0.5 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    border-radius: 10px;
+    margin-left: auto;
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.profile .profile-details .profile-buttons .btn svg,
+.profile .profile-details .profile-buttons button svg,
+.profile .profile-details .profile-buttons a button svg
+{
+    margin-left: 5px;
+}
+
+.profile .profile-details .profile-buttons .socials
+{
+    display: flex;
+    width: max-content;
+    margin-left: auto;
+}
+
+.profile .profile-details .profile-buttons .socials .social
+{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-color);
+    margin-right: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s background ease-in-out;
+}
+
+.profile .profile-details .profile-buttons .socials .social:hover
+{
+    background: var(--primary-color);
+    color: var(--background);
+}
+
+.profile-2  .profile-details
+{
+    text-align: left;
+}
+
+.profile-2 .profile-image
+{
+    margin-right: 0;
+    margin-left: 50px;
+}
+
+.profile-2 .profile-details .profile-description
+{
+    margin-right: auto;
+    text-align: left;
+    margin-left: 0;
+}
+
+.profile-2 .profile-details .profile-buttons .btn,
+.profile-2 .profile-details .profile-buttons button,
+.profile-2 .profile-details .profile-buttons a button
+{
+    margin-left: 0;   
+}
+
+.profile-2 .profile-details .profile-buttons .socials
+{
+    margin-left: 0;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .profile
+    {
+        flex-direction: column;
+    }
+
+    .profile-2
+    {
+        flex-direction: column-reverse;
+    }
+
+    .profile .profile-image
+    {
+        margin-right: 50px;
+        margin: 0 auto;
+    }
+
+    .profile .profile-details .profile-name,
+    .profile .profile-details .profile-description,
+    .profile .profile-details .profile-buttons
+    {
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile .profile-details .profile-buttons
+    {
+        text-align: center;
+    }
+
+    .profile .profile-details .profile-buttons .socials,
+    .profile .profile-details .profile-buttons .btn
+    {
+        width: 100% ;
+        margin-left: 0;
+    }
+
+    .profile .profile-details .profile-buttons .socials
+    {
+        justify-content: center;
+    }
+    
+
+}
+
+/* PROFILE END */
+
+/* CARD */
+
+.card
+{
+    width: 100%;
+    /* border: red solid 2px; */
+    /* margin: 5px; */
+    padding: 1rem 0;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px grey;
+}
+
+.card .card-image
+{
+    width: 70%;
+    height: 200px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    background: grey;
+    overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
+}
+
+.card .card-image img
+{
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.card .card-name
+{
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card .card-message
+{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* CARD END */
+
+/* ROLES */
+
+.roles .heading
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.roles .body
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.roles .body .card
+{
+    width: 24%;
+}
+
+@media screen and (max-width: 768px) {
+    .roles .body .card
+    {
+        width: 100%;
+    }
+    .roles .body .card .card-image
+    {
+        width: 200px;
+    }
+}
+
+/* ROLES END */
+
+/* TOPIC */
+
+.text-center
+{
+    text-align: center;
+}
+
+.topic .body
+{
+    display: flex;
+    padding: 0 2rem;
+}
+
+.topic .body .item
+{
+    width: max-content;
+}
+
+.topic-section
+{
+    margin-bottom: 20px;
+    /* border: red solid 2px; */
+}
+
+.topic-section .card
+{
+    /* background: red; */
+    box-shadow: none;
+}
+
+.topic-section .card .card-image
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    /* .topic .body .item 
+    {
+        width: 100%;
+        border: red solid 2px;
+    }
+    .topic .body .item .card
+    {
+        border: blue solid 2px;
+        width: 100%;
+    } */
+
+    .topic-section .card .card-image
+    {
+        width: 200px;
+        height: 200px;
+    }
+
+}
+
+/* TOPIC END */
+
+/* SLIDER */
+
+.slider,
+.owl-carousel
+{
+    position: relative;
+}
+
+.slider .owl-nav .owl-next,
+.slider .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-nav .owl-prev
+{
+    position: absolute;
+    top: 35%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.slider .owl-nav .owl-next:hover,
+.slider .owl-nav .owl-prev:hover,
+.owl-carousel .owl-nav .owl-next:hover,
+.owl-carousel .owl-nav .owl-prev:hover
+{
+    background: none !important;
+    color: var(--color) !important;
+}
+
+.slider .owl-nav .owl-next span,
+.slider .owl-nav .owl-prev span
+{
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.slider .owl-nav .owl-next
+{
+    right: -20px;
+}
+
+.slider .owl-nav .owl-prev
+{
+    left: -20px;
+}
+
+/* SLIDER */
+
+/* MAIN SECTION END */
+
+/* FOOTER */
+
+.footer
+{
+    min-height: 300px;
+    background: url('../images/footermain.jpg'), gray;
+    padding: 1rem 3rem;
+    background-size: 1900px 1000px;
+    color: var(--background);
+    margin-top: 100px;
+}
+
+.footer .logo 
+{
+    text-align: left;
+    display: inline-block;
+    font-weight: 200;
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+}
+
+.footer .logo img
+{
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 10px;
+}
+
+.footer .logo .message
+{
+    font-size: 1rem;
+    margin-top: 50px;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.footer .menu 
+{
+    margin-top: 30px;
+}
+
+.footer .menu .menu-item
+{
+    display: flex;
+    width: max-content;
+    align-items: last baseline;
+    margin: 10px 0;
+    color: var(--background);
+    padding: 0.7rem;
+    padding-left: 0;
+}
+
+.footer .menu .menu-item .icon
+{
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.footer .menu .menu-item .text a
+{
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+    /* border: red solid 2px; */
+    /* color: red; */
+    color: var(--background);
+    transition: 0.5s opacity ease-in-out;
+}
+
+.footer .menu .menu-item .text a:hover
+{
+    opacity: 0.6;
+}
+
+.footer .contact-mail-socials
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.footer .contact-mail-socials .contact
+{
+    padding: 1rem;
+}
+
+.footer .contact-mail-socials .mail-socials
+{
+    display: flex;
+}
+
+.footer .contact-mail-socials .mail-socials a
+{
+    color: var(--background);
+}
+
+.footer .contact-mail-socials .mail-socials .mail
+{
+    margin-right: 40px;    
+}
+
+.footer .contact-mail-socials .mail-socials .socials
+{
+    display: flex;
+}
+
+.footer .contact-mail-socials .mail-socials .socials .social
+{
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer .contact-mail-socials,
+    .footer .contact-mail-socials .mail-socials 
+    {
+        flex-direction: column;
+    }
+
+    .footer .contact-mail-socials .mail-socials .socials .social
+    {
+        margin-top: 20px;
+    }
+
+}
+
+
+.copyright-message
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--color);
+    color: var(--background);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    text-align: center;
+}
+
+/* FOOTER END */
+
+
+.dn 
+{
+    display: none !important;
+}
